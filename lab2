@@ -1,0 +1,20 @@
+def f(x):
+    return x**3 - x - 3
+
+def bisection(a, b, eps):
+    while (b - a) / 2 > eps:
+        c = (a + b) / 2
+        if f(c) == 0:
+            return c
+        elif f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+    return (a + b) / 2
+
+a = 1
+b = 2
+eps = 1e-6
+
+root = bisection(a, b, eps)
+print(root)
